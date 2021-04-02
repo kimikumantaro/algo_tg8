@@ -1,0 +1,58 @@
+Pseudocode
+
+Initialise variable str to reference string
+Initialise variable pat to pattern
+
+Function search pattern from reference string
+	Pass In: pattern and reference string
+
+	Initialise variable x to size of pattern
+	Initialise variable y to size of reference string
+
+	Initialise lps[] list all with elements 0 with size x
+	Initialise n to 0 representing index for pattern
+
+Call function calculateLpsArray(pat, x, lps) with parameter pat, x,and
+lps
+
+Initialise variable m to 0 representing index for reference string
+While m(index of reference string) is less than y(size of reference string)
+
+	If pattern[index n] is equal to string[index m]
+		m incremented by 1
+		n incremented by 1
+	
+	If index n is equal to index m
+		Print ‘Pattern found at index’ (m-n)
+		n is equal to element of lps in position of n-1
+
+Elif index m < y(size of string) and pattern[index n] is not equal to string[index m]
+If index n is not equal to 0
+n is equal to element lps in position of n-1 
+Else
+	m is incremented by 1
+	Pass Out: nothing
+Endfunction
+
+Function calculate the elements of lps[] based on pattern
+	Pass In: pattern, x(size of pattern), and lps list 
+	
+	Initialise j equal to 0 representing the backpointer on pattern
+	Initialise the first element of lps[] to be always zero
+	Initialise i equal to 1 representing the frontpointer on pattern
+
+	While index i is less than x(size of pattern)
+		If pattern[index i] is equal to pattern[index j]
+			j is incremented by 1
+			Element of lps at index i is equal to j
+			i is incremented by 1
+		Else
+			If index j is not equal to 0
+				j is equal to element of lps[ j-1 ]
+			Else
+				Element of lps at index i is equal to zero
+				i is incremented by 1
+		Pass Out: nothing
+Endfunction
+
+Call function to search for pattern in reference string with parameter pattern and string
