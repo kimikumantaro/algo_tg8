@@ -1,0 +1,48 @@
+# TRIES Pseudocode
+
+CLASS TrieNode
+
+    FUNCTION init with self
+        SET self.child to empty dictionary
+        SET self.endOfWord to False
+
+CLASS Trie
+
+    FUNCTION init with self
+        CALL TrieNode class
+        SET self.root to TrieNode class
+
+    FUNCTION insert with self and word
+        FOR each number in range of length of word starting from 0
+            SET node to self.root
+            FOR each letter in word
+                IF letter does not exist in node.child THEN
+                    CALL TrieNode class
+                    SET index letter of node.child to TrieNode class
+                ENDIF
+                SET node to index letter of node.child
+                SET self.endOfWord to True
+            ENDFOR
+            SET word to substring of word from index 1
+
+    FUNCTION search with self and word
+        SET node to self.root
+        FOR each letter in word
+            IF letter does not exist in node.child THEN
+                    RETURN False
+            ELSE
+                SET node to index letter of node.child
+            ENDIF
+        RETURN node.endOfWord
+
+CALL Trie class as trie
+SET pattern to 'algorithmisfun'
+CALL insert from Trie class with pattern
+SET text to 'fun'
+CALL search from Trie class with text RETURNING found
+
+IF found THEN
+    PRINT '$text is in the trie'
+ELSE
+    PRINT '$text is not in the trie'
+ENDIF
