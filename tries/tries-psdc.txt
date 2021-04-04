@@ -1,17 +1,14 @@
 # TRIES Pseudocode
 
 CLASS TrieNode
-
     FUNCTION init with self
         SET self.child to empty dictionary
         SET self.endOfWord to False
 
 CLASS Trie
-
     FUNCTION init with self
         CALL TrieNode class
         SET self.root to TrieNode class
-
     FUNCTION insert with self and word
         FOR each number in range of length of word starting from 0
             SET node to self.root
@@ -24,7 +21,6 @@ CLASS Trie
                 SET self.endOfWord to True
             ENDFOR
             SET word to substring of word from index 1
-
     FUNCTION search with self and word
         SET node to self.root
         FOR each letter in word
