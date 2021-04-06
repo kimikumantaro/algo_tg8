@@ -1,9 +1,9 @@
 str = "ABABDABACDABABCABAB"
 pat = "ABABCABAB"
 
-def kmpSearch(pat, string):
-    x = len(pat)
-    y = len(str)
+def kmpSearch(pat, str):
+    x = len(pat) # size of pattern
+    y = len(str) # size of reference string
 
     lps = [0]*x # intialize lps[] to hold the longest prefix suffix values from pattern
     n = 0 # index for pat
@@ -11,6 +11,8 @@ def kmpSearch(pat, string):
     calculateLpsArray(pat, x, lps) # calculate the lps/pie array
 
     m = 0 # index for str
+
+    flag = True
     while m < y:
         if pat[n] == str[m]:
             m += 1
@@ -18,6 +20,7 @@ def kmpSearch(pat, string):
 
         if n == x:
             print("Pattern found at index", (m-n))
+            flag = False
             n = lps[n-1]
 
         elif m < y and pat[n] != str[m]:
@@ -26,6 +29,10 @@ def kmpSearch(pat, string):
                 n = lps[n-1]
             else:
                 m += 1
+    else:
+        if flag:
+            print("Pattern not found")
+
 
 def calculateLpsArray(pat, x, lps):
     j = 0 # backpointer on pattern
@@ -33,7 +40,9 @@ def calculateLpsArray(pat, x, lps):
     lps[j] = 0 # first element in lps table must be zero
     i = 1 # frontpointer on pattern
 
-    while i < x:
+                #x = 9
+    while i < x: #"ABABCABAB" lps[0,0,1,2,0,1,2,3,4]
+                             #pat[0,0,0,0,j,0,0,0,0]
         if pat[i] == pat[j]:
             j += 1
             lps[i] = j
