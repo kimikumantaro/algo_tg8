@@ -36,18 +36,18 @@ Therefore, the time complexity of this class can be said to be O(1).
 
 | Cost | Time |
 |:-:|:-:|
-| c1 | n |
-| c2 | n-1 |
-| c3 | n*n |
-| c4 | n(n-1) |
+| c1 | m |
+| c2 | m-1 |
+| c3 | m*m |
+| c4 | m(m-1) |
 | c5 | 1 |
-| c6 | n(n-1) |
-| c7 | n(n-1) |
-| c8 | n-1 |
+| c6 | m(m-1) |
+| c7 | m(m-1) |
+| c8 | m-1 |
 
-Running Time, T(N) = c1(n) + c2(n-1) + c3(n*n) + c4(n(n-1)) + c6((n(n-1)) + c7(n(n-1)) + c8(n-1)
+Running Time, T(N) = c1(m) + c2(m-1) + c3(m*m) + c4(m(m-1)) + c6((m(m-1)) + c7(m(m-1)) + c8(m-1)
 
-Therefore, the time complexity of this class can be said to be O(n^2).
+Therefore, the time complexity of this function can be said to be O(m^2).
 
 ### Search Function
 
@@ -63,4 +63,4 @@ Therefore, the time complexity of this class can be said to be O(n^2).
 
 Running Time, T(N) = c2(n) + c3(n-1) + c5(n-1)
 
-Therefore, the time complexity of this class can be said to be O(n).
+Therefore, the time complexity of this function can be said to be O(n).
