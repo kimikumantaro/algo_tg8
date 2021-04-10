@@ -1,5 +1,7 @@
-str = "ABABDABACDABABCABAB"
-pat = "ABABCABAB"
+# str = "ABABDABACDABABCABAB"
+# pat = "ABABCABAB"
+str = "algorithmisfun"
+pat = "fun"
 
 def kmpSearch(pat, str):
     x = len(pat) # size of pattern
